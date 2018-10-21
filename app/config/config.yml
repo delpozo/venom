@@ -30,6 +30,7 @@ framework:
     assets: ~
     php_errors:
         log: true
+    
     templating:
         engines: ['twig']
 # Twig Configuration
@@ -90,28 +91,5 @@ nelmio_api_doc:
             formats:
                 json:       "application/json"
 # FOS REST Bundle
-fos_rest:
-    body_listener: true
-    param_fetcher_listener: true
-    view:
-        view_response_listener: 'force'
-        exception_wrapper_handler:  null
-        formats:
-            jsonp: true
-            json: true
-            xml: false
-            rss: false
-        mime_types:
-            json: ['application/json', 'application/x-json']
-            jpg: ['image/jpeg']
-            png: ['image/png']
-        jsonp_handler: ~
-    routing_loader:
-        default_format:  json
-        include_format:  false
-    format_listener:
-        rules:
-            - { path: ^/, priorities: [ json, jsonp ], fallback_format: ~, prefer_extension: true }
-    exception:
-        enabled: true                        
+                      
 

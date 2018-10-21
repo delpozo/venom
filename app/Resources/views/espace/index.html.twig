@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Espaces list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>Listeactivite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for espace in espaces %}
+            <tr>
+                <td><a href="{{ path('espace_show', { 'id': espace.id }) }}">{{ espace.id }}</a></td>
+                <td>{{ espace.type }}</td>
+                <td>{{ espace.nom }}</td>
+                <td>{{ espace.adresse }}</td>
+                <td>{{ espace.longitude }}</td>
+                <td>{{ espace.latitude }}</td>
+                <td>{{ espace.listeActivite }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('espace_show', { 'id': espace.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('espace_edit', { 'id': espace.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('espace_new') }}">Create a new espace</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Espace</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ espace.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ espace.type }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ espace.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ espace.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>{{ espace.longitude }}</td>
+            </tr>
+            <tr>
+                <th>Latitude</th>
+                <td>{{ espace.latitude }}</td>
+            </tr>
+            <tr>
+                <th>Listeactivite</th>
+                <td>{{ espace.listeActivite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('espace_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('espace_edit', { 'id': espace.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
