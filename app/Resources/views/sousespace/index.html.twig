@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sousespaces list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Espace</th>
+                <th>Emploi</th>
+                <th>Duree</th>
+                <th>Places</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sousEspace in sousEspaces %}
+            <tr>
+                <td><a href="{{ path('sousespace_show', { 'id': sousEspace.id }) }}">{{ sousEspace.id }}</a></td>
+                <td>{{ sousEspace.type }}</td>
+                <td>{{ sousEspace.espace }}</td>
+                <td>{{ sousEspace.emploi }}</td>
+                <td>{% if sousEspace.duree %}{{ sousEspace.duree|date('H:i:s') }}{% endif %}</td>
+                <td>{{ sousEspace.places }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sousespace_show', { 'id': sousEspace.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sousespace_edit', { 'id': sousEspace.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sousespace_new') }}">Create a new sousEspace</a>
+        </li>
+    </ul>
+{% endblock %}
